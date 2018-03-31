@@ -2,6 +2,7 @@ import React from 'react';
 import Header from './Header';
 import ScheduleTable from './ScheduleTable';
 import SeasonalTable from './SeasonalTable';
+import { Switch, Route } from 'react-router-dom';
 
 function App(){
   const appStyle = {
@@ -20,8 +21,10 @@ function App(){
       }
     `}</style>
       <Header/>
-      <ScheduleTable/>
-      <SeasonalTable/>
+      <Switch>
+        <Route exact path='/' component={ScheduleTable} />
+        <Route path='/seasonalproduce' component={SeasonalTable}/>
+      </Switch>
     </div>
   );
 }
