@@ -1,4 +1,5 @@
 import React from 'react';
+import SeasonalRow from './SeasonalRow';
 
 function SeasonalTable(){
   const availableProduce = [  
@@ -282,10 +283,12 @@ function SeasonalTable(){
       }
     `}</style>
       {availableProduce.map((month, index) =>
-        <div className="seasonal-month">
+        <div className="seasonal-month"
+          key={index}>
           <h2>{month.month}</h2>
           {month.selection.map((fruit, index)=>
-            <p>{fruit}</p>
+            <SeasonalRow item={fruit}
+              key={index}/>
           )}
         </div>
       )}
